@@ -40,3 +40,13 @@ hidden: false
 
   <Card kind="tile" title="Sync" href="#" icon="fa-duotone fa-code-compare">Connect to a storage provider</Card>
 </Cards>
+
+<br />
+
+## Prerequisites
+
+SignalBridge is a demonstration API. The requests in the Quick Start do not reach a working server.
+
+1. Review [authentication in the Quick Start](https://signalbridge-api.readme.io/docs/getting-started-1#1-authenticate) to learn how to include a bearer token in the `Authorization` header.
+2. Review the [message request fields and expected response](https://signalbridge-api.readme.io/docs/getting-started-1#2-send-your-first-message) before trying the example.
+3. Use the [troubleshooting guidance](https://signalbridge-api.readme.io/docs/getting-started-1#4-troubleshooting) to interpret authentication, request formatting, rate limit, and service availability errors.
