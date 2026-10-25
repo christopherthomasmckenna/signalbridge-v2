@@ -1,0 +1,108 @@
+
+openapi: 3.0.3
+info:
+  title: SignalBridge Messaging API
+  version: 1.0.0
+  description: A sample enterprise messaging API.
+servers:
+  - url: https://api.signalbridge.example/v1
+    description: Fictional API server (not live)
+
+tags:
+  - name: Messaging
+  - name: Operations
+
+paths:
+  /messages:
+    post:
+      tags: [Messaging]
+      summary: Send a message
+      operationId: sendMessage
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [to, body]
+              properties:
+                to:
+                  type: string
+                  example: "+12155550123"
+                body:
+                  type: string
+                  example: "Your appointment is confirmed."
+      responses:
+        '202':
+          description: Message accepted for processing
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messageId:
+                    type: string
+                    example: "msg_12345"
+                  status:
+                    type: string
+                    example: "queued"
+        '400':
+          description: Invalid request
+        '401':
+          description: Authentication failed
+        '429':
+          description: Rate limit exceeded
+
+  /messages/{messageId}:
+    get:
+      tags: [Messaging]
+      summary: Retrieve message status
+      operationId: getMessageStatus
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Message status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messageId:
+                    type: string
+                  status:
+                    type: string
+                    enum: [queued, sent, delivered, failed]
+        '404':
+          description: Message not found
+
+  /health:
+    get:
+      tags: [Operations]
+      summary: Check service health
+      operationId: getHealth
+      responses:
+        '200':
+          description: Service healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
