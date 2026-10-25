@@ -4,7 +4,7 @@ hidden: false
 ---
 <Cards>
   {/* Edit the props below to customize these components */}
-  <Card title="Quick Start" href="https://signalbridge-api.readme.io/update/docs/getting-started-1" icon="fa-duotone fa-rocket-launch">Learn how to get started with our product</Card>
+  <Card title="Quick Start" href="https://signalbridge-api.readme.io/docs/getting-started-1" icon="fa-duotone fa-rocket-launch">Learn how to get started with our product</Card>
 
   <Card title="API Reference" href="#" icon="fa-duotone fa-code-simple">Explore endpoints and build your integration</Card>
 
