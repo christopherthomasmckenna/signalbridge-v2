@@ -16,6 +16,10 @@ SignalBridge uses bearer token authentication. Include your API token in the `Au
 ```bash
 Authorization: Bearer YOUR_API_TOKEN
 ```
+```text
+```
+```text
+```
 
 ## 2. Send your first message
 
